@@ -1,4 +1,3 @@
-```jsx
 export default function ManagePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-teal-800 to-indigo-900 text-white font-extrabold flex items-center justify-center p-4">
@@ -40,15 +39,23 @@ export default function ManagePage() {
               <option>كل ١٢ ساعة</option>
               <option>كل يوم</option>
             </select>
+          </div>
+          <button type="submit" className="w-full p-3 bg-indigo-600 rounded-lg hover:bg-indigo-500 transition-colors">
+            حفظ البيانات
+          </button>
+        </form>
 
-
-
-
----
-
-**Support Pollinations.AI:**
-
----
-
-🌸 **Ad** 🌸
-Powered by Pollinations.AI free text APIs. [Support our mission](https://pollinations.ai/redirect/kofi) to keep AI accessible for everyone.         
+        {/* تذييل الصفحة المنسق برمجياً */}
+        <div className="mt-8 pt-4 border-t border-teal-600 text-center text-xs font-normal opacity-70">
+          <p>🌸 **Ad** 🌸</p>
+          <p>
+            Powered by Pollinations.AI free text APIs. 
+            <a href="https://pollinations.ai/redirect/kofi" target="_blank" rel="noopener noreferrer" className="underline ml-1">
+              Support our mission
+            </a> to keep AI accessible for everyone.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
