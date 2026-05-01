@@ -26,7 +26,7 @@ export default function ManagePage() {
 
         <div className="mt-8 pt-4 border-t border-teal-600 text-center text-xs font-normal opacity-70">
           <p>🌸 **Ad** 🌸</p>
-          <p>Powered by Pollinations.AI free text APIs. <a href="https://pollinations.ai/redirect/kofi" target="_blank" rel="noopener noreferrer" className="underline">Support our mission</a></p>
+          <p>Powered by Pollinations.AI. <a href="https://pollinations.ai/redirect/kofi" target="_blank" rel="noopener noreferrer" className="underline">Support the mission</a></p>
         </div>
       </div>
     </div>
