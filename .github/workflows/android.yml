@@ -11,22 +11,30 @@ jobs:
           node-version: 18
 
       - run: npm install
-      
-      # الخطوة الجديدة لحل مشكلة الـ TypeScript
       - run: npm install -D typescript
 
       - run: npm run build
 
-      - run: npx cap sync android
+      # التأكد من إضافة منصة أندرويد إذا لم تكن موجودة أو ناقصة
+      - run: |
+          if [ ! -d "android" ]; then
+            npx cap add android
+          fi
+          npx cap sync android
 
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - run: |
+      - name: Build Android APK
+        run: |
           cd android
-          chmod +x ./gradlew
+          # إصلاح ملف gradlew في حال كان مفقوداً في المستودع
+          if [ ! -f "gradlew" ]; then
+            gradle wrapper
+          fi
+          chmod +x gradlew
           ./gradlew assembleDebug
 
       - uses: actions/upload-artifact@v4
