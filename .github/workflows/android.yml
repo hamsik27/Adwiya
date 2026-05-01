@@ -11,14 +11,14 @@ jobs:
           node-version: 18
 
       - run: npm install
-      - run: npm install -D typescript # حل مشكلة capacitor.config.ts
+      - run: npm install -D typescript # ضروري لملفات الإعداد
 
-      - run: npm run build
+      - run: npm run build # تحويل مشروع React إلى ملفات جاهزة
 
+      # مسح مجلد أندرويد القديم وإعادة بنائه لضمان وجود ملفات Gradle
       - run: |
-          if [ ! -d "android" ]; then
-            npx cap add android
-          fi
+          rm -rf android
+          npx cap add android
           npx cap sync android
 
       - uses: actions/setup-java@v4
@@ -29,9 +29,6 @@ jobs:
       - name: Build Android APK
         run: |
           cd android
-          if [ ! -f "gradlew" ]; then
-            gradle wrapper
-          fi
           chmod +x gradlew
           ./gradlew assembleDebug
 
